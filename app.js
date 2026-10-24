@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animateCursor);
 
     // Expand cursor over interactive nodes
-    const hoverTargets = document.querySelectorAll('button, a, input, select, .zone-card, .spec-item, .ig-item');
+    const hoverTargets = document.querySelectorAll('button, a, input, select, .zone-card, .spec-item, .ig-item, .audio-toggle-btn, .payment-option-card, .faq-question, .filter-tab, .spec-tab-btn');
     hoverTargets.forEach((node) => {
       node.addEventListener('mouseenter', () => customCursor.classList.add('hovering'));
       node.addEventListener('mouseleave', () => customCursor.classList.remove('hovering'));
@@ -306,8 +306,11 @@ document.addEventListener('DOMContentLoaded', () => {
         specsSection.scrollIntoView({ behavior: 'smooth' });
       }
 
-      // Activate corresponding tab
-      const matchingTab = document.querySelector(`.spec-tab-btn[data-spec="${targetSpec}"]`);
+      // Activate corresponding tab with fallback
+      let matchingTab = document.querySelector(`.spec-tab-btn[data-spec="${targetSpec}"]`);
+      if (!matchingTab && (targetSpec === 'ps5-specs' || targetSpec === 'console-specs')) {
+        matchingTab = document.querySelector('.spec-tab-btn[data-spec="console-specs"]') || document.querySelector('.spec-tab-btn[data-spec="ps5-specs"]');
+      }
       if (matchingTab) {
         matchingTab.click();
       }
@@ -439,10 +442,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Trigger buttons
   const openBookingBtn = document.getElementById('openBookingBtn');
+  const drawerBookBtn = document.getElementById('drawerBookBtn');
+  const quickTourBtn = document.getElementById('quickTourBtn');
   const heroBookBtn = document.getElementById('heroBookBtn');
   const confirmCalculatorBtn = document.getElementById('confirmCalculatorBtn');
 
   if (openBookingBtn) openBookingBtn.addEventListener('click', () => openModal());
+  if (drawerBookBtn) {
+    drawerBookBtn.addEventListener('click', () => {
+      if (typeof closeMobileMenu === 'function') closeMobileMenu();
+      openModal();
+    });
+  }
+  if (quickTourBtn) {
+    quickTourBtn.addEventListener('click', () => {
+      const zones = document.getElementById('zones');
+      if (zones) {
+        zones.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
   if (heroBookBtn) heroBookBtn.addEventListener('click', () => openModal());
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
@@ -481,14 +500,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Quick explore tour button
-  const quickTourBtn = document.getElementById('quickTourBtn');
-  if (quickTourBtn) {
-    quickTourBtn.addEventListener('click', () => {
-      const zonesSec = document.getElementById('zones');
-      if (zonesSec) zonesSec.scrollIntoView({ behavior: 'smooth' });
+
+  // Payment Option selection inside modal (Display-only UI)
+  const paymentCards = document.querySelectorAll('.payment-option-card');
+  paymentCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      paymentCards.forEach((c) => c.classList.remove('active'));
+      card.classList.add('active');
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
     });
-  }
+  });
 
   // Handle Booking Form Submission -> Generates Pass
   if (bookingForm) {
@@ -499,12 +521,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const zoneVal = modalZoneSelect ? modalZoneSelect.value : 'PC Battle Station';
       const slotVal = document.getElementById('modalTimeSlot').value;
 
+      // Capture selected display payment option
+      const selectedPaymentRadio = document.querySelector('input[name="paymentOption"]:checked');
+      const paymentVal = selectedPaymentRadio ? selectedPaymentRadio.value : 'Paytm UPI';
+
       // Generate random ticket code
       const randomCode = 'DUG-' + Math.floor(1000 + Math.random() * 9000);
 
       document.getElementById('ticketPlayerName').textContent = gamerName;
       document.getElementById('ticketZone').textContent = zoneVal;
       document.getElementById('ticketSlot').textContent = slotVal;
+      const ticketPaymentMethod = document.getElementById('ticketPaymentMethod');
+      if (ticketPaymentMethod) {
+        ticketPaymentMethod.textContent = `${paymentVal} (Pay at Counter)`;
+      }
       document.getElementById('ticketCode').textContent = randomCode;
 
       bookingForm.style.display = 'none';
@@ -517,6 +547,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (resetTicketBtn) {
     resetTicketBtn.addEventListener('click', () => {
       bookingForm.reset();
+      // Reset payment options to default (Paytm UPI)
+      paymentCards.forEach((c) => c.classList.remove('active'));
+      const defaultPayCard = document.querySelector('label[for="payMethodPaytm"]');
+      if (defaultPayCard) defaultPayCard.classList.add('active');
+      const defaultRadio = document.getElementById('payMethodPaytm');
+      if (defaultRadio) defaultRadio.checked = true;
+
       bookingForm.style.display = 'block';
       ticketPreview.style.display = 'none';
     });
@@ -580,38 +617,109 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // -------------------------------------------------------------------------
-  // 10. MOBILE MENU TOGGLE
+  // 10. MOBILE MENU TOGGLE & DRAWER LOGIC
   // -------------------------------------------------------------------------
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const drawerTourBtn = document.getElementById('drawerTourBtn');
 
-  if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+  function openMobileMenu() {
+    if (navLinks && mobileMenuBtn) {
+      navLinks.classList.add('active');
+      mobileMenuBtn.classList.add('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      if (navOverlay) navOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMobileMenu() {
+    if (navLinks && mobileMenuBtn) {
+      navLinks.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      if (navOverlay) navOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function toggleMobileMenu() {
+    if (navLinks && navLinks.classList.contains('active')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+  }
+
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+  if (drawerTourBtn) {
+    drawerTourBtn.addEventListener('click', () => {
+      closeMobileMenu();
     });
+  }
 
-    // Close when nav link is clicked
+  // Close drawer when any anchor link inside navLinks is clicked
+  if (navLinks) {
     const links = navLinks.querySelectorAll('a');
     links.forEach((l) => {
       l.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        closeMobileMenu();
       });
     });
   }
 
+  // Keyboard accessibility: ESC key dismisses mobile drawer & modals
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+      if (bookingModal && bookingModal.classList.contains('active')) {
+        closeModal();
+      }
+      if (typeof closeSitemap === 'function') {
+        closeSitemap();
+      }
+    }
+  });
+
   // -------------------------------------------------------------------------
-  // 11. ACTIVE NAV LINK ON SCROLL
+  // 11. STICKY NAVBAR SCROLLED STATE & ACTIVE SCROLLSPY
   // -------------------------------------------------------------------------
+  const mainNav = document.getElementById('mainNav');
   const sections = document.querySelectorAll('section[id]');
   const allNavLinks = document.querySelectorAll('.nav-link');
 
-  window.addEventListener('scroll', () => {
-    let current = '';
+  let scrollTicking = false;
+
+  function handleScroll() {
     const scrollY = window.pageYOffset;
 
+    // Sticky navbar glass enhancement on scroll
+    if (mainNav) {
+      if (scrollY > 25) {
+        mainNav.classList.add('scrolled');
+      } else {
+        mainNav.classList.remove('scrolled');
+      }
+    }
+
+    // Scrollspy calculation with navbar height offset
+    let current = '';
     sections.forEach((section) => {
       const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
+      const sectionTop = section.offsetTop - 110;
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         current = section.getAttribute('id');
       }
@@ -622,6 +730,91 @@ document.addEventListener('DOMContentLoaded', () => {
       if (link.getAttribute('href') === `#${current}`) {
         link.classList.add('active');
       }
+    });
+
+    // Dynamic contextual breadcrumb navigation update
+    const breadcrumbSectionLink = document.getElementById('breadcrumbSectionLink');
+    const breadcrumbCurrent = document.getElementById('breadcrumbCurrent');
+    const breadcrumbMap = {
+      hero: { link: '#hero', section: 'Overview', current: 'Jaipur Esports Arena' },
+      zones: { link: '#zones', section: 'Gaming Lounge', current: 'Arena Battlestations' },
+      specs: { link: '#specs', section: 'The Armory', current: 'Hardware Specifications' },
+      pricing: { link: '#pricing', section: 'Passes', current: 'Rates & Memberships' },
+      bookingCalculator: { link: '#bookingCalculator', section: 'Booking', current: 'Session Configurator' },
+      tournaments: { link: '#tournaments', section: 'Esports', current: 'Tournament Brackets' },
+      instagram: { link: '#instagram', section: 'Community', current: 'Instagram Wall' },
+      contact: { link: '#contact', section: 'Visit Us', current: 'Location & FAQs' }
+    };
+
+    if (breadcrumbSectionLink && breadcrumbCurrent && current && breadcrumbMap[current]) {
+      breadcrumbSectionLink.setAttribute('href', breadcrumbMap[current].link);
+      breadcrumbSectionLink.textContent = breadcrumbMap[current].section;
+      breadcrumbCurrent.textContent = breadcrumbMap[current].current;
+    }
+
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(handleScroll);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Initial call on load to set initial state
+  handleScroll();
+
+  // -------------------------------------------------------------------------
+  // 12. SITEMAP MODAL LOGIC & ANCHOR NAVIGATION
+  // -------------------------------------------------------------------------
+  const sitemapModal = document.getElementById('sitemapModal');
+  const openSitemapBtn = document.getElementById('openSitemapBtn');
+  const closeSitemapBtn = document.getElementById('closeSitemapBtn');
+  const sitemapBookBtn = document.getElementById('sitemapBookBtn');
+
+  function openSitemap() {
+    if (sitemapModal) {
+      sitemapModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeSitemap() {
+    if (sitemapModal) {
+      sitemapModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (openSitemapBtn) {
+    openSitemapBtn.addEventListener('click', openSitemap);
+  }
+
+  if (closeSitemapBtn) {
+    closeSitemapBtn.addEventListener('click', closeSitemap);
+  }
+
+  if (sitemapModal) {
+    sitemapModal.addEventListener('click', (e) => {
+      if (e.target === sitemapModal) {
+        closeSitemap();
+      }
+    });
+  }
+
+  if (sitemapBookBtn) {
+    sitemapBookBtn.addEventListener('click', () => {
+      closeSitemap();
+      openModal();
+    });
+  }
+
+  const sitemapAnchors = document.querySelectorAll('.sitemap-anchor');
+  sitemapAnchors.forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      closeSitemap();
+      // Allow default smooth scrolling to target anchor
     });
   });
 });

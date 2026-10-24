@@ -2,18 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAMERS DUGOUT | Jaipur's Premier Esports Lounge & Gaming Cafe</title>
-  <meta name="description" content="Welcome to Gamers Dugout Jaipur (@gamers_dugout). Elite liquid-cooled RTX battle stations, PS5 VIP lounge, pro racing simulators, tournament snooker & pool arena. Book your gaming slot now.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>GAMERS DUGOUT | Jaipur's Premier Esports Lounge &amp; Gaming Cafe</title>
+  <meta name="description" content="Welcome to Gamers Dugout Jaipur (@gamers_dugout). Elite liquid-cooled RTX battle stations, PS5 VIP lounge, pro racing simulators, tournament snooker &amp; pool arena. Book your gaming slot now.">
   <meta name="keywords" content="Gamers Dugout, gaming cafe jaipur, gaming lounge mansarovar, ps5 lounge jaipur, esports cafe jaipur, snooker jaipur, racing simulator jaipur">
-  <link rel="icon" type="image/jpeg" href="assets/dugout_logo.jpg">
+  <link rel="canonical" href="./index.html">
+  <meta name="theme-color" content="#06070a">
 
-  <!-- Google Fonts: Orbitron, Rajdhani, Syne, Inter -->
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GAMERS DUGOUT | Jaipur's Premier Esports Lounge &amp; Gaming Cafe">
+  <meta property="og:description" content="Liquid-cooled RTX battle stations, PS5 VIP lounge, pro racing simulators, and tournament snooker arena in Mansarovar, Jaipur.">
+  <meta property="og:image" content="assets/hero_battlestation.jpg">
+  <meta property="og:url" content="https://www.instagram.com/gamers_dugout/">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GAMERS DUGOUT | Jaipur's Premier Esports Lounge">
+  <meta name="twitter:description" content="Liquid-cooled RTX battle stations, PS5 VIP lounge, pro racing simulators, and tournament snooker in Jaipur.">
+  <meta name="twitter:image" content="assets/hero_battlestation.jpg">
+
+  <!-- Real Logo Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/dugout_logo.jpg">
+  <link rel="apple-touch-icon" href="assets/dugout_logo.jpg">
+
+  <!-- Schema.org LocalBusiness Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EntertainmentBusiness",
+    "name": "Gamers Dugout",
+    "image": "assets/hero_battlestation.jpg",
+    "logo": "assets/dugout_logo.jpg",
+    "description": "Jaipur's premier gaming lounge featuring liquid-cooled RTX 4080 Super PCs, PS5 VIP lounge, Fanatec racing simulators, and tournament snooker.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 23-A, Sukhija Vihar Vistar, Manyawas, Block B",
+      "addressLocality": "Mansarovar, Jaipur",
+      "addressRegion": "Rajasthan",
+      "postalCode": "302020",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919876543210",
+    "openingHours": "Mo-Su 11:00-02:00",
+    "priceRange": "₹₹",
+    "paymentAccepted": "Cash, Credit Card, Paytm, PhonePe, UPI",
+    "sameAs": [
+      "https://www.instagram.com/gamers_dugout/"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Orbitron, Rajdhani, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Orbitron:wght@500;700;900&amp;family=Rajdhani:wght@500;600;700&amp;display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons for gaming & social icons -->
+  <!-- FontAwesome Icons for gaming &amp; social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
@@ -31,56 +81,97 @@
   <div class="ambient-glow glow-purple"></div>
   <div class="ambient-glow glow-pink"></div>
 
-  <!-- Top Announcement Ticker / Live Status Bar -->
-  <header class="top-status-bar">
-    <div class="container status-inner">
-      <div class="status-indicator">
-        <span class="live-dot pulse"></span>
-        <span class="status-text"><strong>DUGOUT LIVE:</strong> 18/24 Rigs Occupied • Low Latency Fiber (3ms) • Open till 2:00 AM</span>
-      </div>
-      <div class="top-actions">
-        <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer" class="social-top-link">
-          <i class="fa-brands fa-instagram"></i> @gamers_dugout
-        </a>
-        <div class="audio-toggle-btn" id="audioToggle" title="Toggle Gamer Sound FX">
-          <i class="fa-solid fa-volume-high" id="audioIcon"></i>
-          <span id="audioStatusText">SFX: ON</span>
-        </div>
-      </div>
-    </div>
-  </header>
 
   <!-- Main Navigation Bar -->
-  <nav class="navbar" id="mainNav">
+  <nav class="navbar" id="mainNav" role="navigation" aria-label="Main Navigation">
     <div class="container nav-container">
-      <a href="#hero" class="brand-logo">
-        <img src="assets/dugout_logo.jpg" alt="Gamers Dugout Logo" class="brand-img">
+      <a href="#hero" class="brand-logo" aria-label="Gamers Dugout Home">
+        <div class="brand-logo-frame">
+          <img src="assets/dugout_logo.jpg" alt="Gamers Dugout Logo" class="brand-img">
+          <span class="logo-status-indicator" title="Lounge Open"></span>
+        </div>
         <div class="brand-text">
           <span class="brand-title">GAMERS<span class="neon-accent">DUGOUT</span></span>
-          <span class="brand-sub">JAIPUR • ESPORTS & LOUNGE</span>
+          <span class="brand-sub"><span class="brand-sub-city">JAIPUR</span><span class="brand-dot">•</span>ESPORTS &amp; LOUNGE</span>
         </div>
       </a>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#zones" class="nav-link">Gaming Zones</a></li>
-        <li><a href="#specs" class="nav-link">The Armory</a></li>
-        <li><a href="#pricing" class="nav-link">Passes & Rates</a></li>
-        <li><a href="#tournaments" class="nav-link">Tournaments</a></li>
-        <li><a href="#instagram" class="nav-link">Community</a></li>
-        <li><a href="#contact" class="nav-link">Locate Us</a></li>
-      </ul>
+      <div class="nav-menu-wrapper" id="navMenuWrapper">
+        <ul class="nav-links" id="navLinks">
+          <li class="drawer-header-item">
+            <div class="mobile-drawer-header">
+              <div class="drawer-brand">
+                <span class="drawer-badge"><i class="fa-solid fa-gamepad"></i> ARENA PORTAL</span>
+              </div>
+              <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close navigation menu">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </li>
+          <li><a href="#hero" class="nav-link active"><span class="nav-link-text">Home</span><span class="nav-link-tag">01</span></a></li>
+          <li><a href="#zones" class="nav-link"><span class="nav-link-text">Gaming Zones</span><span class="nav-link-tag">02</span></a></li>
+          <li><a href="#specs" class="nav-link"><span class="nav-link-text">The Armory</span><span class="nav-link-tag">03</span></a></li>
+          <li><a href="#pricing" class="nav-link"><span class="nav-link-text">Passes &amp; Rates</span><span class="nav-link-tag">04</span></a></li>
+          <li><a href="#tournaments" class="nav-link"><span class="nav-link-text">Tournaments</span><span class="nav-link-tag">05</span></a></li>
+          <li><a href="#instagram" class="nav-link"><span class="nav-link-text">Community</span><span class="nav-link-tag">06</span></a></li>
+          <li><a href="#contact" class="nav-link"><span class="nav-link-text">Locate Us</span><span class="nav-link-tag">07</span></a></li>
+          <li class="drawer-footer-item">
+            <div class="drawer-actions">
+              <button class="btn btn-neon-glow full-width drawer-action-btn" id="drawerBookBtn">
+                <i class="fa-solid fa-gamepad"></i> <span>Book Station</span>
+              </button>
+              <a href="#zones" class="btn btn-outline full-width drawer-action-btn" id="drawerTourBtn">
+                <i class="fa-solid fa-vr-cardboard"></i> <span>Explore Arena</span>
+              </a>
+            </div>
+            <div class="drawer-telemetry">
+              <span class="live-dot pulse"></span>
+              <span>18/24 Rigs Active • Low Latency (3ms)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
 
       <div class="nav-cta-group">
-        <button class="btn btn-outline" id="quickTourBtn">
-          <i class="fa-solid fa-vr-cardboard"></i> Explore
+        <div class="audio-toggle-btn" id="audioToggle" title="Toggle Gamer Sound FX" role="button" tabindex="0" aria-label="Toggle Gamer Sound FX">
+          <i class="fa-solid fa-volume-high" id="audioIcon"></i>
+          <span id="audioStatusText">SFX: ON</span>
+        </div>
+        <button class="btn btn-outline" id="quickTourBtn" aria-label="Explore gaming zones">
+          <i class="fa-solid fa-vr-cardboard"></i> <span>Explore</span>
         </button>
-        <button class="btn btn-neon-glow" id="openBookingBtn">
-          <i class="fa-solid fa-gamepad"></i> Book Station
+        <button class="btn btn-neon-glow" id="openBookingBtn" aria-label="Book a station">
+          <i class="fa-solid fa-gamepad"></i> <span class="cta-btn-text">Book Station</span>
         </button>
-        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
+        <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+          <span class="toggle-bar bar-top"></span>
+          <span class="toggle-bar bar-mid"></span>
+          <span class="toggle-bar bar-bot"></span>
         </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <!-- Contextual Breadcrumb Navigation -->
+  <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <div class="container breadcrumb-inner">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a href="#hero" class="breadcrumb-link"><i class="fa-solid fa-house"></i> <span>Home</span></a>
+        </li>
+        <li class="breadcrumb-sep" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+        <li class="breadcrumb-item" id="breadcrumbSectionItem">
+          <a href="#zones" class="breadcrumb-link" id="breadcrumbSectionLink">Gaming Lounge</a>
+        </li>
+        <li class="breadcrumb-sep" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <span id="breadcrumbCurrent" class="breadcrumb-current">Arena Battlestations</span>
+        </li>
+      </ol>
+      <div class="breadcrumb-telemetry" title="Live status of gaming stations">
+        <span class="live-dot pulse"></span>
+        <span class="badge-text">STATUS: RIGS AVAILABLE</span>
       </div>
     </div>
   </nav>
@@ -144,7 +235,7 @@
         <div class="hero-visual">
           <div class="hero-image-frame">
             <div class="hologram-scanline"></div>
-            <img src="assets/hero_battlestation.jpg" alt="Gamers Dugout Esports PC Arena" class="hero-main-img">
+            <img src="assets/hero_battlestation.jpg" alt="Gamers Dugout Esports PC Arena featuring liquid-cooled RTX battle stations and 360Hz monitors" class="hero-main-img" width="800" height="480" fetchpriority="high" decoding="async">
             <div class="image-overlay-card top-right-card">
               <div class="overlay-icon"><i class="fa-solid fa-microchip"></i></div>
               <div class="overlay-info">
@@ -174,19 +265,19 @@
         </div>
 
         <!-- Zone Filters -->
-        <div class="zone-filter-bar">
-          <button class="filter-tab active" data-filter="all">All Zones</button>
-          <button class="filter-tab" data-filter="pc">Esports PC Arena</button>
-          <button class="filter-tab" data-filter="ps5">VIP PS5 Lounge</button>
-          <button class="filter-tab" data-filter="sim">Racing Sim Rig</button>
-          <button class="filter-tab" data-filter="snooker">Snooker & Pool</button>
+        <div class="zone-filter-bar" role="tablist" aria-label="Gaming Zone Categories">
+          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All Zones</button>
+          <button class="filter-tab" data-filter="pc" role="tab" aria-selected="false">Esports PC Arena</button>
+          <button class="filter-tab" data-filter="ps5" role="tab" aria-selected="false">VIP PS5 Lounge</button>
+          <button class="filter-tab" data-filter="sim" role="tab" aria-selected="false">Racing Sim Rig</button>
+          <button class="filter-tab" data-filter="snooker" role="tab" aria-selected="false">Snooker &amp; Pool</button>
         </div>
 
         <div class="zones-grid" id="zonesGrid">
           <!-- Zone 1: Esports Battle Stations -->
           <div class="zone-card" data-category="pc">
             <div class="zone-image-wrapper">
-              <img src="assets/hero_battlestation.jpg" alt="PC Battle Station" class="zone-img">
+              <img src="assets/hero_battlestation.jpg" alt="Pro Esports PC Battle Station with RTX 4080 Super and 360Hz monitor at Gamers Dugout" class="zone-img" width="600" height="340" loading="lazy" decoding="async">
               <span class="zone-badge badge-pc"><i class="fa-solid fa-desktop"></i> PC ARENA</span>
               <div class="zone-price-tag">From ₹100/hr</div>
             </div>
@@ -195,9 +286,9 @@
               <p class="zone-desc">Dedicated tournament-ready rigs configured for flawless 360FPS competitive gameplay in Valorant, CS2, Overwatch 2, and Apex Legends.</p>
               
               <ul class="zone-features">
-                <li><i class="fa-solid fa-check text-neon"></i> RTX 40-Series & i9/Ryzen 7 Processors</li>
+                <li><i class="fa-solid fa-check text-neon"></i> RTX 40-Series &amp; i9/Ryzen 7 Processors</li>
                 <li><i class="fa-solid fa-check text-neon"></i> 240Hz / 360Hz Fast-IPS Esports Monitors</li>
-                <li><i class="fa-solid fa-check text-neon"></i> Mechanical Keyboards & Ultralight Mice</li>
+                <li><i class="fa-solid fa-check text-neon"></i> Mechanical Keyboards &amp; Ultralight Mice</li>
                 <li><i class="fa-solid fa-check text-neon"></i> Low-latency studio headsets with boom mics</li>
               </ul>
 
@@ -211,7 +302,7 @@
           <!-- Zone 2: VIP PS5 Lounge -->
           <div class="zone-card" data-category="ps5">
             <div class="zone-image-wrapper">
-              <img src="assets/ps5_lounge.jpg" alt="PlayStation 5 Lounge" class="zone-img">
+              <img src="assets/ps5_lounge.jpg" alt="PlayStation 5 VIP Lounge with 4K OLED HDR displays and luxury leather recliners at Gamers Dugout" class="zone-img" width="600" height="340" loading="lazy" decoding="async">
               <span class="zone-badge badge-ps5"><i class="fa-brands fa-playstation"></i> PS5 VIP</span>
               <div class="zone-price-tag">From ₹150/hr</div>
             </div>
@@ -223,12 +314,12 @@
                 <li><i class="fa-solid fa-check text-neon"></i> PS5 Consoles with 100+ Digital Blockbusters</li>
                 <li><i class="fa-solid fa-check text-neon"></i> EA FC 25, Tekken 8, Mortal Kombat 1, Spider-Man 2</li>
                 <li><i class="fa-solid fa-check text-neon"></i> 4K 120FPS HDR OLED Displays</li>
-                <li><i class="fa-solid fa-check text-neon"></i> Duo & Squad Couch Multiplayer setups</li>
+                <li><i class="fa-solid fa-check text-neon"></i> Duo &amp; Squad Couch Multiplayer setups</li>
               </ul>
 
               <div class="zone-card-footer">
                 <button class="btn btn-zone-book" data-zone="PS5 VIP Pod">Book PS5 Pod</button>
-                <button class="btn btn-details-ghost" data-target="ps5-specs">Game Library</button>
+                <button class="btn btn-details-ghost" data-target="console-specs">Game Library</button>
               </div>
             </div>
           </div>
@@ -236,7 +327,7 @@
           <!-- Zone 3: Racing Simulator Rig -->
           <div class="zone-card" data-category="sim">
             <div class="zone-image-wrapper">
-              <img src="assets/racing_simulator.jpg" alt="Racing Simulator Rig" class="zone-img">
+              <img src="assets/racing_simulator.jpg" alt="Fanatec ClubSport Direct Drive Racing Cockpit with triple panoramic screens at Gamers Dugout" class="zone-img" width="600" height="340" loading="lazy" decoding="async">
               <span class="zone-badge badge-sim"><i class="fa-solid fa-car"></i> SIM RACING</span>
               <div class="zone-price-tag">From ₹200/hr</div>
             </div>
@@ -245,7 +336,7 @@
               <p class="zone-desc">Feel every kerb and hairpin turn. High-torque direct-drive steering base, load-cell hydraulic pedals, and wrap-around triple monitors for pure adrenaline.</p>
               
               <ul class="zone-features">
-                <li><i class="fa-solid fa-check text-neon"></i> Fanatec Direct Drive Wheel & Telemetry Dashboard</li>
+                <li><i class="fa-solid fa-check text-neon"></i> Fanatec Direct Drive Wheel &amp; Telemetry Dashboard</li>
                 <li><i class="fa-solid fa-check text-neon"></i> Triple Curved Panoramic Visual Wrap</li>
                 <li><i class="fa-solid fa-check text-neon"></i> Assetto Corsa Competizione, F1 24, Forza Horizon</li>
                 <li><i class="fa-solid fa-check text-neon"></i> Custom cockpit ergonomics with Sparco seat</li>
@@ -253,7 +344,7 @@
 
               <div class="zone-card-footer">
                 <button class="btn btn-zone-book" data-zone="Pro Racing Simulator">Book Sim Rig</button>
-                <button class="btn btn-details-ghost" data-target="sim-specs">Tracks & Cars</button>
+                <button class="btn btn-details-ghost" data-target="sim-specs">Tracks &amp; Cars</button>
               </div>
             </div>
           </div>
@@ -261,12 +352,12 @@
           <!-- Zone 4: Snooker & Pool Lounge -->
           <div class="zone-card" data-category="snooker">
             <div class="zone-image-wrapper">
-              <img src="assets/snooker_lounge.jpg" alt="Snooker and Pool Arena" class="zone-img">
+              <img src="assets/snooker_lounge.jpg" alt="Tournament slate snooker and pool lounge with canopy luminaire lighting at Gamers Dugout" class="zone-img" width="600" height="340" loading="lazy" decoding="async">
               <span class="zone-badge badge-snooker"><i class="fa-solid fa-circle-dot"></i> BILLIARDS</span>
               <div class="zone-price-tag">From ₹120/hr</div>
             </div>
             <div class="zone-body">
-              <h3 class="zone-name">Tournament Snooker & 8-Ball Lounge</h3>
+              <h3 class="zone-name">Tournament Snooker &amp; 8-Ball Lounge</h3>
               <p class="zone-desc">Premium slate-bed tables with English tournament cloth, precision cues, Aramith balls, and atmospheric LED canopy lighting in a cozy cyberpunk lounge.</p>
               
               <ul class="zone-features">
@@ -277,7 +368,7 @@
               </ul>
 
               <div class="zone-card-footer">
-                <button class="btn btn-zone-book" data-zone="Snooker & Pool">Book Table</button>
+                <button class="btn btn-zone-book" data-zone="Snooker &amp; Pool">Book Table</button>
                 <button class="btn btn-details-ghost" data-target="snooker-specs">Table Specs</button>
               </div>
             </div>
@@ -590,7 +681,7 @@
     </section>
 
     <!-- INTERACTIVE SLOT BOOKING CALCULATOR & MODAL TRIGGER -->
-    <section class="section booking-interactive-section">
+    <section class="section booking-interactive-section" id="bookingCalculator">
       <div class="container">
         <div class="booking-calculator-panel">
           <div class="calc-header">
@@ -617,18 +708,18 @@
                 <div class="form-group">
                   <label for="hoursInput">Duration (Hours):</label>
                   <div class="stepper-wrap">
-                    <button class="step-btn" id="decreaseHours">-</button>
-                    <input type="number" id="hoursInput" min="1" max="12" value="2" readonly>
-                    <button class="step-btn" id="increaseHours">+</button>
+                    <button class="step-btn" id="decreaseHours" aria-label="Decrease hours">-</button>
+                    <input type="number" id="hoursInput" min="1" max="12" value="2" readonly aria-label="Selected hours">
+                    <button class="step-btn" id="increaseHours" aria-label="Increase hours">+</button>
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="playersInput">Gamer Squad Size:</label>
                   <div class="stepper-wrap">
-                    <button class="step-btn" id="decreasePlayers">-</button>
-                    <input type="number" id="playersInput" min="1" max="10" value="1" readonly>
-                    <button class="step-btn" id="increasePlayers">+</button>
+                    <button class="step-btn" id="decreasePlayers" aria-label="Decrease players">-</button>
+                    <input type="number" id="playersInput" min="1" max="10" value="1" readonly aria-label="Selected players">
+                    <button class="step-btn" id="increasePlayers" aria-label="Increase players">+</button>
                   </div>
                 </div>
               </div>
@@ -675,10 +766,27 @@
                   <span class="total-price" id="calcTotalPrice">₹200</span>
                 </div>
               </div>
+
+              <!-- Payment Partner Trust Badges -->
+              <div class="calc-payment-partners">
+                <span class="partners-label"><i class="fa-solid fa-wallet text-cyan"></i> Spot Payment Partners (Pay at Counter):</span>
+                <div class="partners-row">
+                  <div class="partner-badge" title="Paytm Accepted">
+                    <img src="assets/paytm_logo.svg" alt="Paytm" width="68" height="20" loading="lazy" decoding="async">
+                  </div>
+                  <div class="partner-badge" title="PhonePe Accepted">
+                    <img src="assets/phonepe_logo.svg" alt="PhonePe" width="75" height="20" loading="lazy" decoding="async">
+                  </div>
+                  <div class="partner-badge cash-badge" title="Cash / Card Accepted">
+                    <i class="fa-solid fa-money-bill-wave"></i> Cash / Card
+                  </div>
+                </div>
+              </div>
+
               <button class="btn btn-primary full-width btn-glitch" id="confirmCalculatorBtn">
                 <i class="fa-solid fa-bolt"></i> PROCEED TO INSTANT BOOKING
               </button>
-              <p class="receipt-footer-text"><i class="fa-solid fa-shield-halved"></i> Instant confirmation. Pay at counter or UPI online.</p>
+              <p class="receipt-footer-text"><i class="fa-solid fa-shield-halved"></i> Instant confirmation. Pay at counter via Paytm, PhonePe, or Cash.</p>
             </div>
           </div>
         </div>
@@ -776,7 +884,7 @@
 
         <div class="ig-profile-card">
           <div class="ig-avatar-wrap">
-            <img src="assets/dugout_logo.jpg" alt="Gamers Dugout Profile" class="ig-avatar">
+            <img src="assets/dugout_logo.jpg" alt="Gamers Dugout Official Profile Avatar" class="ig-avatar" width="80" height="80" loading="lazy" decoding="async">
             <span class="ig-verified-badge"><i class="fa-solid fa-circle-check"></i></span>
           </div>
           <div class="ig-meta-info">
@@ -792,8 +900,8 @@
               <span><strong>Jaipur, RJ</strong></span>
             </div>
             <p class="ig-bio">
-              🎮 Jaipur's Favorite Gaming Lounge & Esports Zone<br>
-              🖥️ High-End PCs | 🎮 PS5 | 🏎️ Racing Sim | 🎱 Snooker & Pool<br>
+              🎮 Jaipur's Favorite Gaming Lounge &amp; Esports Zone<br>
+              🖥️ High-End PCs | 🎮 PS5 | 🏎️ Racing Sim | 🎱 Snooker &amp; Pool<br>
               📍 Sukhija Vihar Vistar, Manyawas, Mansarovar, Jaipur
             </p>
           </div>
@@ -802,7 +910,7 @@
         <!-- Social Grid Showcase -->
         <div class="ig-media-grid">
           <div class="ig-item">
-            <img src="assets/hero_battlestation.jpg" alt="Esports Night at Gamers Dugout" class="ig-img">
+            <img src="assets/hero_battlestation.jpg" alt="Jaipur gamers competing in Saturday night Valorant scrims at Gamers Dugout" class="ig-img" width="400" height="400" loading="lazy" decoding="async">
             <div class="ig-hover-overlay">
               <div class="ig-stats">
                 <span><i class="fa-solid fa-heart"></i> 642</span>
@@ -813,7 +921,7 @@
           </div>
 
           <div class="ig-item">
-            <img src="assets/ps5_lounge.jpg" alt="PS5 Lounge Chill Sessions" class="ig-img">
+            <img src="assets/ps5_lounge.jpg" alt="VIP electric recliners and EA FC 25 gaming lounge at Gamers Dugout" class="ig-img" width="400" height="400" loading="lazy" decoding="async">
             <div class="ig-hover-overlay">
               <div class="ig-stats">
                 <span><i class="fa-solid fa-heart"></i> 519</span>
@@ -824,7 +932,7 @@
           </div>
 
           <div class="ig-item">
-            <img src="assets/racing_simulator.jpg" alt="Racing Sim Lap Times" class="ig-img">
+            <img src="assets/racing_simulator.jpg" alt="Direct Drive racing simulator hot lap session at Gamers Dugout Jaipur" class="ig-img" width="400" height="400" loading="lazy" decoding="async">
             <div class="ig-hover-overlay">
               <div class="ig-stats">
                 <span><i class="fa-solid fa-heart"></i> 784</span>
@@ -835,7 +943,7 @@
           </div>
 
           <div class="ig-item">
-            <img src="assets/snooker_lounge.jpg" alt="Snooker Lounge Vibes" class="ig-img">
+            <img src="assets/snooker_lounge.jpg" alt="Snooker and English 8-ball billiards tables at Gamers Dugout" class="ig-img" width="400" height="400" loading="lazy" decoding="async">
             <div class="ig-hover-overlay">
               <div class="ig-stats">
                 <span><i class="fa-solid fa-heart"></i> 412</span>
@@ -849,7 +957,7 @@
     </section>
 
     <!-- TESTIMONIALS & REVIEWS SECTION -->
-    <section class="section reviews-section">
+    <section class="section reviews-section" id="reviews">
       <div class="container">
         <div class="section-header text-center">
           <div class="sub-badge"><i class="fa-solid fa-star text-gold"></i> WHAT PLAYERS SAY</div>
@@ -1009,7 +1117,7 @@
     <div class="container footer-content">
       <div class="footer-brand">
         <div class="brand-logo">
-          <img src="assets/dugout_logo.jpg" alt="Gamers Dugout" class="brand-img">
+          <img src="assets/dugout_logo.jpg" alt="Gamers Dugout" class="brand-img" width="44" height="44" loading="lazy" decoding="async">
           <div class="brand-text">
             <span class="brand-title">GAMERS<span class="neon-accent">DUGOUT</span></span>
             <span class="brand-sub">JAIPUR'S ESPORTS HUB</span>
@@ -1018,6 +1126,14 @@
         <p class="footer-desc">
           The premier destination for competitive gamers, casual squads, console enthusiasts, and snooker lovers in Jaipur.
         </p>
+        <div class="footer-payment-box">
+          <span class="footer-pay-title">Accepted Payment Partners (Pay at Counter):</span>
+          <div class="footer-pay-badges">
+            <img src="assets/paytm_logo.svg" alt="Paytm" width="65" height="18" loading="lazy" decoding="async">
+            <img src="assets/phonepe_logo.svg" alt="PhonePe" width="70" height="18" loading="lazy" decoding="async">
+            <span class="footer-cash-tag"><i class="fa-solid fa-money-bill-wave"></i> Cash / UPI</span>
+          </div>
+        </div>
       </div>
 
       <div class="footer-links-col">
@@ -1026,17 +1142,26 @@
           <li><a href="#zones">RTX Battle Stations</a></li>
           <li><a href="#zones">PS5 VIP Recliner Lounge</a></li>
           <li><a href="#zones">Fanatec Sim Racing Cockpits</a></li>
-          <li><a href="#zones">Snooker & 8-Ball Tables</a></li>
+          <li><a href="#zones">Snooker &amp; 8-Ball Tables</a></li>
         </ul>
       </div>
 
       <div class="footer-links-col">
-        <h4>Navigation</h4>
+        <h4>Sitemap &amp; Navigation</h4>
         <ul>
-          <li><a href="#specs">Hardware Armory</a></li>
-          <li><a href="#pricing">Passes & Rates</a></li>
-          <li><a href="#tournaments">Upcoming Tournaments</a></li>
-          <li><a href="#contact">Location & Timings</a></li>
+          <li><a href="#hero">01. Arena Home</a></li>
+          <li><a href="#zones">02. Gaming Zones</a></li>
+          <li><a href="#specs">03. Hardware Armory</a></li>
+          <li><a href="#pricing">04. Passes &amp; Rates</a></li>
+          <li><a href="#bookingCalculator">05. Session Estimator</a></li>
+          <li><a href="#tournaments">06. Tournaments</a></li>
+          <li><a href="#instagram">07. Community</a></li>
+          <li><a href="#contact">08. Location &amp; FAQ</a></li>
+          <li>
+            <button class="footer-sitemap-btn" id="openSitemapBtn" aria-label="Open complete site map modal">
+              <i class="fa-solid fa-sitemap text-cyan"></i> View Full Site Map
+            </button>
+          </li>
         </ul>
       </div>
 
@@ -1044,13 +1169,13 @@
         <h4>Official Instagram</h4>
         <p class="footer-ig-text">Follow <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer">@gamers_dugout</a> for daily giveaways, clips, and tournament schedules.</p>
         <div class="social-badges">
-          <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://discord.gg/" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <a href="https://discord.gg/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Discord">
             <i class="fa-brands fa-discord"></i>
           </a>
-          <a href="https://maps.google.com/?q=Gamers+Dugout+Mansarovar+Jaipur" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <a href="https://maps.google.com/?q=Gamers+Dugout+Mansarovar+Jaipur" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Google Maps Location">
             <i class="fa-solid fa-map-location-dot"></i>
           </a>
         </div>
@@ -1060,19 +1185,19 @@
     <div class="footer-bottom">
       <div class="container bottom-inner">
         <p>© 2026 Gamers Dugout Jaipur. All Rights Reserved. Designed for high performance.</p>
-        <p>Instagram: <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer" class="link-glow">@gamers_dugout</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/gamers_dugout/" target="_blank" rel="noopener noreferrer" class="link-glow">@gamers_dugout</a> • <a href="sitemap.xml" target="_blank" class="sitemap-xml-link" title="XML Sitemap for Search Engines">sitemap.xml</a></p>
       </div>
     </div>
   </footer>
 
   <!-- BOOKING MODAL WITH GAMER PASS GENERATOR -->
-  <div class="modal-overlay" id="bookingModal">
+  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalBookingTitle">
     <div class="modal-card">
-      <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close booking modal">&times;</button>
       
       <div class="modal-header">
         <div class="sub-badge"><i class="fa-solid fa-id-card"></i> INSTANT PASS SYSTEM</div>
-        <h3 class="modal-title">RESERVE YOUR <span class="text-gradient">GAMING SEAT</span></h3>
+        <h3 class="modal-title" id="modalBookingTitle">RESERVE YOUR <span class="text-gradient">GAMING SEAT</span></h3>
         <p class="modal-sub">Fast-track your slot at Gamers Dugout Jaipur.</p>
       </div>
 
@@ -1095,7 +1220,7 @@
               <option value="PC Battle Station (360Hz RTX)">Esports PC Battle Station (360Hz RTX)</option>
               <option value="PlayStation 5 VIP Pod">PlayStation 5 VIP Recliner Pod</option>
               <option value="Fanatec Pro Racing Sim">Fanatec Pro Racing Simulator</option>
-              <option value="Tournament Snooker & Pool">Tournament Snooker & Pool Table</option>
+              <option value="Tournament Snooker & Pool">Tournament Snooker &amp; Pool Table</option>
             </select>
           </div>
           <div class="form-group">
@@ -1121,6 +1246,45 @@
           </select>
         </div>
 
+        <!-- Preferred Payment Mode (UI Mockup) -->
+        <div class="form-group payment-preference-box">
+          <label class="payment-box-label">
+            <span><i class="fa-solid fa-wallet text-cyan"></i> Preferred Payment Method</span>
+            <span class="pay-counter-tag"><i class="fa-solid fa-store"></i> Pay at Counter</span>
+          </label>
+          <div class="payment-options-grid" role="radiogroup" aria-label="Preferred Payment Method">
+            <label class="payment-option-card active" for="payMethodPaytm">
+              <input type="radio" name="paymentOption" id="payMethodPaytm" value="Paytm UPI" checked>
+              <div class="pay-logo-badge">
+                <img src="assets/paytm_logo.svg" alt="Paytm" width="68" height="20" loading="lazy" decoding="async">
+              </div>
+              <span class="pay-label">Paytm UPI</span>
+              <span class="pay-radio-indicator"><i class="fa-solid fa-check"></i></span>
+            </label>
+
+            <label class="payment-option-card" for="payMethodPhonePe">
+              <input type="radio" name="paymentOption" id="payMethodPhonePe" value="PhonePe UPI">
+              <div class="pay-logo-badge">
+                <img src="assets/phonepe_logo.svg" alt="PhonePe" width="75" height="20" loading="lazy" decoding="async">
+              </div>
+              <span class="pay-label">PhonePe UPI</span>
+              <span class="pay-radio-indicator"><i class="fa-solid fa-check"></i></span>
+            </label>
+
+            <label class="payment-option-card" for="payMethodCash">
+              <input type="radio" name="paymentOption" id="payMethodCash" value="Cash / Card">
+              <div class="pay-logo-badge cash-badge">
+                <i class="fa-solid fa-money-bill-wave"></i>
+              </div>
+              <span class="pay-label">Cash / Card</span>
+              <span class="pay-radio-indicator"><i class="fa-solid fa-check"></i></span>
+            </label>
+          </div>
+          <p class="pay-security-note">
+            <i class="fa-solid fa-circle-check text-cyan"></i> Reservation is 100% free with zero advance payment. Pay seamlessly upon arrival at the cafe reception.
+          </p>
+        </div>
+
         <div class="modal-actions">
           <button type="submit" class="btn btn-primary full-width btn-large btn-glitch">
             <i class="fa-solid fa-qrcode"></i> GENERATE DUGOUT PASS
@@ -1132,9 +1296,12 @@
       <div class="ticket-preview" id="ticketPreview" style="display: none;">
         <div class="ticket-card">
           <div class="ticket-header">
-            <div class="t-brand">
-              <span class="neon-accent">GAMERS DUGOUT</span>
-              <span class="t-type">OFFICIAL GAMER PASS</span>
+            <div class="t-brand-wrap">
+              <img src="assets/dugout_logo.jpg" alt="Gamers Dugout Logo" class="ticket-brand-img" width="38" height="38" loading="lazy" decoding="async">
+              <div class="t-brand">
+                <span class="neon-accent">GAMERS DUGOUT</span>
+                <span class="t-type">OFFICIAL GAMER PASS</span>
+              </div>
             </div>
             <div class="ticket-status-badge">RESERVED</div>
           </div>
@@ -1152,6 +1319,10 @@
               <strong id="ticketSlot">Today - In 30 Mins</strong>
             </div>
             <div class="t-line">
+              <span>PAYMENT MODE:</span>
+              <strong id="ticketPaymentMethod">Paytm UPI (Pay at Counter)</strong>
+            </div>
+            <div class="t-line">
               <span>STATION CODE:</span>
               <strong class="text-neon" id="ticketCode">DUG-8924</strong>
             </div>
@@ -1166,6 +1337,71 @@
         <button class="btn btn-outline full-width" id="resetTicketBtn">
           <i class="fa-solid fa-arrow-left"></i> Book Another Slot
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ON-SITE SITEMAP MODAL -->
+  <div class="modal-overlay sitemap-modal-overlay" id="sitemapModal" role="dialog" aria-modal="true" aria-labelledby="sitemapTitle">
+    <div class="modal-card sitemap-card">
+      <button class="modal-close-btn" id="closeSitemapBtn" aria-label="Close site map">&times;</button>
+      
+      <div class="modal-header">
+        <div class="sub-badge"><i class="fa-solid fa-sitemap"></i> ARCHITECTURE &amp; DIRECTORY</div>
+        <h3 class="modal-title" id="sitemapTitle">GAMERS DUGOUT <span class="neon-accent">SITE MAP</span></h3>
+        <p class="modal-sub">Direct index of all sections, battle stations, pricing packages, and facilities.</p>
+      </div>
+
+      <div class="sitemap-grid">
+        <div class="sitemap-col">
+          <h4 class="sitemap-heading"><i class="fa-solid fa-gamepad text-cyan"></i> Gaming Arenas</h4>
+          <ul class="sitemap-links">
+            <li><a href="#zones" class="sitemap-anchor">Pro PC Battle Stations (360Hz RTX)</a></li>
+            <li><a href="#zones" class="sitemap-anchor">PlayStation 5 VIP Recliner Pods</a></li>
+            <li><a href="#zones" class="sitemap-anchor">Fanatec Direct-Drive Racing Rigs</a></li>
+            <li><a href="#zones" class="sitemap-anchor">Tournament Snooker &amp; Pool Tables</a></li>
+          </ul>
+        </div>
+
+        <div class="sitemap-col">
+          <h4 class="sitemap-heading"><i class="fa-solid fa-microchip text-purple"></i> The Armory</h4>
+          <ul class="sitemap-links">
+            <li><a href="#specs" class="sitemap-anchor">RTX 4080 Super &amp; i9/Ryzen 7 Specs</a></li>
+            <li><a href="#specs" class="sitemap-anchor">Competitive FPS Benchmarks</a></li>
+            <li><a href="#specs" class="sitemap-anchor">Pro Esports Peripherals &amp; Gear</a></li>
+            <li><a href="#specs" class="sitemap-anchor">Fanatec Sim Wheelbase Telemetry</a></li>
+          </ul>
+        </div>
+
+        <div class="sitemap-col">
+          <h4 class="sitemap-heading"><i class="fa-solid fa-ticket text-pink"></i> Passes &amp; Booking</h4>
+          <ul class="sitemap-links">
+            <li><a href="#pricing" class="sitemap-anchor">Recruit Hourly Pass (₹100/hr)</a></li>
+            <li><a href="#pricing" class="sitemap-anchor">Veteran Marathon Pass (₹400 / 5hrs)</a></li>
+            <li><a href="#pricing" class="sitemap-anchor">Night Owl All-Night Lock-in (₹750)</a></li>
+            <li><a href="#bookingCalculator" class="sitemap-anchor">Interactive Price Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="sitemap-col">
+          <h4 class="sitemap-heading"><i class="fa-solid fa-trophy text-gold"></i> Esports &amp; Info</h4>
+          <ul class="sitemap-links">
+            <li><a href="#tournaments" class="sitemap-anchor">Valorant Jaipur Clutch Major 2026</a></li>
+            <li><a href="#tournaments" class="sitemap-anchor">EA Sports FC 25 Showdown</a></li>
+            <li><a href="#instagram" class="sitemap-anchor">Instagram Community Wall (@gamers_dugout)</a></li>
+            <li><a href="#contact" class="sitemap-anchor">Lounge Address, Timings &amp; FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sitemap-modal-footer">
+        <div class="sitemap-payment-trust">
+          <span class="trust-title">Accepted Payment Partners:</span>
+          <img src="assets/paytm_logo.svg" alt="Paytm" width="62" height="18" loading="lazy" decoding="async">
+          <img src="assets/phonepe_logo.svg" alt="PhonePe" width="68" height="18" loading="lazy" decoding="async">
+          <span>• Cash / UPI at Counter</span>
+        </div>
+        <button class="btn btn-primary" id="sitemapBookBtn"><i class="fa-solid fa-gamepad"></i> Instant Pass Booking</button>
       </div>
     </div>
   </div>
