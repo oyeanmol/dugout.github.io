@@ -297,12 +297,13 @@ section[id], .section {
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  gap: clamp(0.5rem, 1.2vw, 1.25rem);
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: clamp(1rem, 2vw, 2rem);
-  padding-right: clamp(1rem, 2vw, 2rem);
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  padding-right: clamp(1rem, 2.5vw, 2rem);
   transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -435,16 +436,18 @@ section[id], .section {
   flex-shrink: 0;
 }
 
-.nav-links > li {
+.nav-links > li:not(.drawer-header-item):not(.drawer-footer-item) {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
 }
 
+.nav-links > .drawer-header-item,
+.nav-links > .drawer-footer-item,
 .drawer-header-item,
 .drawer-footer-item,
 .nav-link-tag {
-  display: none;
+  display: none !important;
 }
 
 .nav-link {
@@ -906,12 +909,12 @@ section[id], .section {
 
 /* Section Header Styles */
 .section {
-  padding: 5.5rem 0;
+  padding: clamp(3.5rem, 5vw, 4.5rem) 0;
   position: relative;
   z-index: 1;
 }
 .section-header {
-  margin-bottom: 3.5rem;
+  margin-bottom: clamp(2rem, 3.5vw, 2.75rem);
 }
 .section-header.text-center {
   text-align: center;
@@ -935,7 +938,7 @@ section[id], .section {
    HERO SECTION
    ========================================================================== */
 .hero-section {
-  padding: 4rem 0 5rem;
+  padding: clamp(3rem, 4.5vw, 3.75rem) 0 clamp(3.25rem, 4.5vw, 4.5rem);
   position: relative;
   z-index: 2;
 }
@@ -2971,8 +2974,9 @@ section[id], .section {
   }
 
   /* Drawer Header */
-  .drawer-header-item {
-    display: block;
+  .drawer-header-item,
+  .nav-links > .drawer-header-item {
+    display: block !important;
     margin-bottom: 0.75rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-bottom: 0.85rem;
@@ -3030,6 +3034,7 @@ section[id], .section {
   /* Drawer Nav Links */
   .nav-links li:not(.drawer-header-item):not(.drawer-footer-item) {
     width: 100%;
+    display: block;
   }
 
   .nav-links .nav-link {
@@ -3082,8 +3087,9 @@ section[id], .section {
   }
 
   /* Drawer Footer */
-  .drawer-footer-item {
-    display: block;
+  .drawer-footer-item,
+  .nav-links > .drawer-footer-item {
+    display: block !important;
     margin-top: auto;
     padding-top: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -3355,6 +3361,9 @@ section[id], .section {
   }
   .breadcrumb-telemetry {
     display: none;
+  }
+  .sitemap-grid {
+    grid-template-columns: 1fr;
   }
 }
 
