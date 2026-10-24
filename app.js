@@ -694,6 +694,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Auto-close mobile drawer if viewport is expanded back to desktop screen (>1250px)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1250 && navLinks && navLinks.classList.contains('active')) {
+      closeMobileMenu();
+    }
+  });
+
   // -------------------------------------------------------------------------
   // 11. STICKY NAVBAR SCROLLED STATE & ACTIVE SCROLLSPY
   // -------------------------------------------------------------------------
